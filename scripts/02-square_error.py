@@ -43,7 +43,8 @@ def resolve(dataset, m):
     for i in range(0,m+1):
         p = dataset.x**i
         p.name="x**%d" % i
-        phi = pd.concat([phi,p], axis=1)
+	#phi.append(p)
+        phi = pd.concat([phi,pd.DataFrame(p)], axis=1)
     tmp = np.linalg.inv(np.dot(phi.T, phi))
     ws = np.dot(np.dot(tmp, phi.T), t)
 
